@@ -1,8 +1,11 @@
 // Packages config
+var PORT= process.env.PORT || 3000
 var express=require("express")
 const app=express()
 var bodyparser=require("body-parser")
-var methodOverride=require("method-override")
+var methodOverride=require("method-override");
+var mongoose=require("mongoose")
+var Site= require('./models/db');
 
 //APP CONFIG
 app.set("view engine","ejs");
@@ -11,17 +14,16 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
 // Model Config
-var mongoose=require("mongoose")
-mongoose.connect("mongodb://localhost/site_app");
+mongoose.connect( 'mongodb+srv://akkhill1910:akhilkonduru@cluster0.hm2en.mongodb.net/site_app?retryWrites=true&w=majority' ,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+});
+mongoose.connection.on('connected', () =>{
+    console.log('Mongoose is connected');
+});
 
 //Model Schema 
-var siteSchema =mongoose.Schema({
-    title:String,
-    image:String,
-    body:String,
-    date:{type:Date,default:Date.now}
-});
-var Site =mongoose.model("Site",siteSchema); // variable created for easy accessing 
+ // variable created for easy accessing 
 
 // Routes 
 app.get('/',function(req,res){
@@ -107,5 +109,5 @@ app.delete('/site/:id',function(req,res){
 });
 
 
-app.listen(3000,console.log('Server is up!'))
+app.listen(PORT,console.log('Server is up!'))
 

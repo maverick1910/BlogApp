@@ -1,14 +1,33 @@
 <%- include("./partials/header")%>
-
-<% site.forEach(function(sites){%>
-    <div id="show">
-        <h2><%=sites.title%></h2>
-        <img src="<%=sites.image%>" alt="">
-        <p><%=sites.body.substring(0,100)%>....</p>
-        <a class="ui red inverted  button" href="/site/<%=sites._id%>">Read More</a>
-        <span><%=sites.date%></span>
-
+<div class="ui main huge header ">
+    <div class="ui top attached segment">
+        <div id="red" class="ui divided items">
+            <h1 id="main">CRUD APP BLOG</h1>
+            <% site.forEach(function(sites){%>
+                <div  class="item">
+                    <div class="image">
+                         <img src="<%=sites.image%>" alt="">
+                    </div>
+                    <div class="content">
+                       <a class="header" href="/site/<%=sites._id%>"<%=sites.title%></a>
+                       <div class="meta">
+                           <span><%=sites.date.toDateString()%></span>
+                       </div>
+                       <div class="description">
+                           <p><%=sites.body.substring(0,100)%>....</p>
+                       </div> 
+                       <div class="extra">
+                        <a class="ui floated basic green button" href="/site/<%=sites._id%>">
+                            Read More
+                            <i class="right chevron"></i>
+                        </a>
+                       </div>
+                    </div>
+                </div>
+            <%})%>
+        </div>
     </div>
+</div>
 
-<%})%>
+
 <%- include("./partials/footer")%>

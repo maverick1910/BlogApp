@@ -3,6 +3,7 @@ var express=require("express")
 const app=express()
 var bodyparser=require("body-parser")
 var methodOverride=require("method-override")
+
 //APP CONFIG
 app.set("view engine","ejs");
 app.use(express.static("public"));
@@ -48,6 +49,7 @@ app.get('/site/new',function(req,res){
 
 // Redirect to main after creating new blog
 app.post('/site',function(req,res){
+    
     Site.create(req.body.site,function(err,newsite){
         if(err){
             res.render("new")
@@ -83,6 +85,7 @@ app.get('/site/:id/edit',function(req,res){
 
 //Update Route
 app.put('/site/:id',function(req,res){
+    
     Site.findByIdAndUpdate(req.params.id,req.body.site,function(err,updatedSite){
         if(err){
             res.redirect('/site')

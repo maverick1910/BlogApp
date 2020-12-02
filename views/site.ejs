@@ -1,0 +1,13 @@
+<%- include("./partials/header")%>
+
+<% site.forEach(function(sites){%>
+    <div id="show">
+        <h2><%=sites.title%></h2>
+        <img src="<%=sites.image%>" alt="">
+        <p><%=sites.body%></p>
+        <span><%=sites.date%></span>
+
+    </div>
+
+<%})%>
+<%- include("./partials/footer")%>

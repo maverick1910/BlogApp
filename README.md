@@ -1,6 +1,5 @@
 # BlogApp
-# Click here to view Site 
-(https://crudblogapp.herokuapp.com/site)
+# Click here to view Site https://crudblogapp.herokuapp.com/site
 A simple CRUD blog app using Semantic UI and Mongodb  
 Technologies used
 

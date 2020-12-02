@@ -4,7 +4,8 @@
     <div id="show">
         <h2><%=sites.title%></h2>
         <img src="<%=sites.image%>" alt="">
-        <p><%=sites.body%></p>
+        <p><%=sites.body.substring(0,100)%>....</p>
+        <a class="ui red inverted  button" href="/site/<%=sites._id%>">Read More</a>
         <span><%=sites.date%></span>
 
     </div>

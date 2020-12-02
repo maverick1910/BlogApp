@@ -1,9 +1,12 @@
 i.icon{
     font-size: 2em;
 }
-#main{
-    padding-top: 50px;
+.container-main{
+    padding-top: 10.0em;
 }
-#show{
-    padding-top: 70px;
+#id{
+    align-content: center;
+}
+#delete{
+    display: inline;
 }

@@ -1,25 +1,21 @@
 <%- include("./partials/header")%>
 <div id="set" class="ui main text container segment">
     <div id="main" class="ui huge header"></div>
-    <form class="ui form" action="/site" method="POST">
-        <h1>Create a Blog</h1>
+    <form class="ui form" action="/site/<%=site._id%>?_method=PUT" method="POST"
+        <h1>Edit <%=site.title%></h1>
         <div class="field">
             <label for="">Title</label>
-            <input type="text" name="site[title]" placeholder="title">
+            <input type="text" name="site[title]" value="<%=site.title%>">
         </div>
         <div class="field">
             <label for="">Image URL</label>
-            <input type="text" name="site[image]" placeholder="image url">
+            <input type="text" name="site[image]" value="<%=site.image%>">
         </div>
         <div class="field">
             <label for="">Content</label>
-           <textarea name="site[body]" id="" cols="30" rows="10"></textarea>
+           <textarea name="site[body]"  cols="30" rows="10" "><%=site.body%></textarea>
         </div>
         <input class="ui violet inverted big button" type="submit">
     </form>
 </div>
-
-
-
-
 <%- include("./partials/footer")%>
